@@ -1,0 +1,19 @@
+CREATE TABLE `user` (
+  `userId` int(3) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `role` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`userId`),
+  UNIQUE KEY `username` (`username`)
+);
+
+CREATE TABLE `user_profile` (
+  `userId` int(3) NOT NULL DEFAULT '0',
+  `firstName` varchar(20) DEFAULT NULL,
+  `lastName` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`userId`),
+  CONSTRAINT `FK` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  );
+
+INSERT INTO user
+VALUES ('1','superman','4580','supplier');
